@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Página 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>
+      Não precisei que me contassem o que te move; seus detalhes gritam em silêncio.  
+      Cada gesto, cada olhar, cada suspiro revela o que palavras não alcançam.  
+      Quando amamos uma pessoa, a amamos por inteiro, não somente as partes boas.  
+      Você está pronta?
+    </h1>
+
+    <button id="botaoPronta">Estou pronta</button>
+  </div>
+
+  <audio id="musica">
+    <source src="stay.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const botao = document.getElementById('botaoPronta');
+    const musica = document.getElementById('musica');
+
+    botao.addEventListener('click', () => {
+      musica.play();
+      setTimeout(() => {
+        window.location.href = 'page2.html';
+      }, 100);
+    });
+  </script>
+</body>
+</html>
