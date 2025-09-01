@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Página Interativa</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fefefe;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section {
+      display: none;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .section.active {
+      display: flex;
+    }
+
+    h1 {
+      font-size: 22px;
+      line-height: 1.5;
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      background-color: #ffcc00;
+      color: #111;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .carta {
+      text-align: left;
+      white-space: pre-wrap;
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Música contínua -->
+  <audio id="musica" loop>
+    <source src="stay.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Seção 1 -->
+  <div id="page1" class="section active">
+    <h1>
+      Não precisei que me contassem o que te move; seus detalhes gritam em silêncio.  
+      Cada gesto, cada olhar, cada suspiro revela o que palavras não alcançam.  
+      Quando amamos uma pessoa, a amamos por inteiro, não somente as partes boas.  
+      Você está pronta?
+    </h1>
+    <button id="botaoPronta">Estou pronta</button>
+  </div>
+
+  <!-- Seção 2 -->
+  <div id="page2" class="section">
+    <h1>
+      Agora é sério, prometo!  
+      Se você estiver pronta, aperte aqui
+    </h1>
+    <button id="botaoProxima2">Apertei!</button>
+  </div>
+
+  <!-- Seção 3 -->
+  <div id="page3" class="section">
+    <div class="carta">
+      Me perguntei mil vezes por onde começar a falar de você — e todas as respostas me pareceram insuficientes, como se o idioma não tivesse músculos para sustentar o peso do que sinto. Não é que faltem palavras; é que você sempre escapa delas, como água entre os dedos.
+
+      Observo seus detalhes em silêncio, e isso se tornou vício. Um vício perigoso. Não precisei que me contassem o que te move; seus detalhes gritam em silêncio. Os girassóis, por exemplo. Mas você não é um girassol comum. Não é a flor frágil que segue o sol mecanicamente. Você é a fenda entre luz e sombra, a raiz que não se satisfaz com solo raso. É o amarelo que sangra intensidade no meio do cinza. Um girassol que não teme o próprio peso, que se curva ao vento, mas não se quebra.
+
+      E ainda assim… você ama o mar. Corre para ele como quem se lança à morte e à vida ao mesmo tempo. Sem olhar para trás. Sem se importar se nas ondas encontrará algo que vai rasgar sua pele. Você mergulha como uma criança que corre ao abraço de quem ama — uma confiança cega, quase insana. Ali, na entrega, você encontra abrigo. Ali, no silêncio entre uma onda e outra, há algo de brutalmente verdadeiro em você: a seriedade que se inscreve no seu rosto, impossível de não ser percebida, como uma assinatura invisível do destino.
+
+      E quando está entre os seus — aqueles que ama sem reservas — você dança. Dança como quem não tem medo de errar, porque o erro ali não existe. O movimento se torna oração, e o espaço ao redor vira lar. E no lar, finalmente, você repousa a armadura. Não que no dia a dia deixe de ser você mesma, mas é ali que se revela inteira, sem o peso das máscaras.
+
+      Você ri, sim, e esse riso ilumina. Mas seus olhos… ah, eles não mentem. Eles carregam pequenas mortes diárias, cicatrizes que se escondem entre os cílios. Num instante, o riso se converte em lágrima, e é nesse limite que você revela sua força — não a força das muralhas, mas a das rachaduras que continuam em pé mesmo depois de expostas.
+
+      Talvez seja isso que me inquieta: você transborda. É caos e é refúgio. É a tempestade e é o colo. É a anestesia que me assusta porque sempre vivi no barulho — e, de repente, ao seu lado, existe silêncio. Um silêncio tão profundo que chega a doer.
+
+      Eu não sei por onde começar. Mas sei que tudo em você — até o que não entendo — me arrasta. Você é o girassol que desafia a noite. Você é o mar que engole e devolve. Você é a dança que transforma chão em lar. Você é o olhar que paralisa.
+
+      E eu, miseravelmente humano, apenas cedo.
+    </div>
+  </div>
+
+  <script>
+    const musica = document.getElementById('musica');
+    musica.play().catch(() => {
+      document.body.addEventListener('click', () => musica.play(), { once: true });
+    });
+
+    // Botão da página 1 → vai para a página 2
+    document.getElementById('botaoPronta').addEventListener('click', () => {
+      document.getElementById('page1').classList.remove('active');
+      document.getElementById('page2').classList.add('active');
+    });
+
+    // Botão da página 2 → vai para a página 3
+    document.getElementById('botaoProxima2').addEventListener('click', () => {
+      document.getElementById('page2').classList.remove('active');
+      document.getElementById('page3').classList.add('active');
+    });
+  </script>
+</body>
+</html>
