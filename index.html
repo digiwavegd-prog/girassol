@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Página Interativa</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    .container {
+      text-align: center;
+      margin-top: 100px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 {
+      font-size: 22px;
+      line-height: 1.5;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Música contínua -->
+  <audio id="musica" loop>
+    <source src="stay.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Seção 1 -->
+  <div id="page1" class="section active">
+    <div class="container">
+      <h1>
+        Não precisei que me contassem o que te move; seus detalhes gritam em silêncio.  
+        Cada gesto, cada olhar, cada suspiro revela o que palavras não alcançam.  
+        Quando amamos uma pessoa, a amamos por inteiro, não somente as partes boas.  
+        Você está pronta?
+      </h1>
+      <button id="botaoPronta">Estou pronta</button>
+    </div>
+  </div>
+
+  <!-- Seção 2 -->
+  <div id="page2" class="section">
+    <div class="container">
+      <h1>Bem-vinda à página 2! A música continua tocando.</h1>
+      <button id="botaoProxima2">Ir para página 3</button>
+    </div>
+  </div>
+
+  <!-- Seção 3 -->
+  <div id="page3" class="section">
+    <div class="container">
+      <h1>Você chegou à página 3. A música ainda não parou!</h1>
+      <!-- Aqui você pode adicionar mais conteúdo ou botões -->
+    </div>
+  </div>
+
+  <script>
+    const musica = document.getElementById('musica');
+    musica.play().catch(() => {
+      document.body.addEventListener('click', () => musica.play(), { once: true });
+    });
+
+    // Botão da página 1 → vai para a página 2
+    document.getElementById('botaoPronta').addEventListener('click', () => {
+      document.getElementById('page1').classList.remove('active');
+      document.getElementById('page2').classList.add('active');
+    });
+
+    // Botão da página 2 → vai para a página 3
+    document.getElementById('botaoProxima2').addEventListener('click', () => {
+      document.getElementById('page2').classList.remove('active');
+      document.getElementById('page3').classList.add('active');
+    });
+  </script>
+</body>
+</html>
